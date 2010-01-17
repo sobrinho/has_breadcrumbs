@@ -4,7 +4,15 @@ has_breadcrumbs is a simple plugin that adds a breadcrumb object into controller
 
 h2. Instalation
 
-1) Install the plugin with `script/plugin install git://github.com/danielvlopes/has_breadcrumbs.git`
+You can install using as gem:
+
+<pre>
+Rails::Initializer.run do |config|
+  config.gem 'has_breadcrumbs'
+end
+</pre>
+
+or install as plugin with `script/plugin install git://github.com/sobrinho/has_breadcrumbs.git`
 
 h2. Usage
 
@@ -12,18 +20,19 @@ On your controller:
 
 <pre>
 class ApplicationController < ActionController::Base
-  before_filter :add_initial_breadcrumbs
+  before_filter :add_initial_breadcrumb
 
-  private
-    def add_initial_breadcrumbs
-      breadcrumb.add 'Home', root_path
-    end
+  protected
+
+  def add_initial_breadcrumb
+    breadcrumb.add 'Home', root_path
+  end
 end
 
-class ThingsController < ApplicationController
+class PostsController < ApplicationController
   def index
-    # you can also use << instead of .add
-    breadcrumb.add 'Things', things_path
+    # you can also use << instead of add
+    breadcrumb.add 'Posts', posts_path
   end
 end
 </pre>
@@ -45,12 +54,6 @@ On your view:
 
 <pre>You are here: <%= breadcrumb.display %></pre>
 
-You can set your own separator:
-
-<pre>
-You are here: <%= breadcrumb.display %>
-</pre>
-
 The output in your html will be something like below:
 
 <pre>
@@ -64,6 +67,6 @@ The output in your html will be something like below:
 
 For a good css example take a look in examples folder.
 
-This work is based on "http://github.com/fnando/has_breadcrumbs/tree/master":http://github.com/fnando/has_breadcrumbs/tree/master by Nando Vieira.
+This work is based on "http://github.com/fnando/has_breadcrumbs":http://github.com/fnando/has_breadcrumbs by Nando Vieira.
 
-Adaptation made by Daniel Lopes, under the MIT license.
+Adaptation made by Daniel Lopes and gemified by Gabriel Sobrinho, under the MIT license.
