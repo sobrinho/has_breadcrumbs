@@ -4,8 +4,8 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{has_breadcrumb}
-  s.version = "0.1.0"
+  s.name = %q{has_breadcrumbs}
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gabriel Sobrinho", "Daniel Lopes", "Nando Vieira"]
@@ -17,17 +17,19 @@ Gem::Specification.new do |s|
   s.files = [
     "MIT-LICENSE",
      "README.textile",
+     "Rakefile",
      "VERSION",
      "examples/images/crumbs.gif",
      "examples/index.html",
      "examples/styles.css",
+     "has_breadcrumb.gemspec",
      "init.rb",
      "lib/breadcrumb.rb",
      "lib/has_breadcrumbs.rb",
      "spec/has_breadcrumbs_spec.rb",
      "spec/spec_helper.rb"
   ]
-  s.homepage = %q{http://github.com/sobrinho/has_breadcrumb}
+  s.homepage = %q{http://github.com/sobrinho/has_breadcrumbs}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
