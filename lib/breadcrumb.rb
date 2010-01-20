@@ -7,11 +7,11 @@ class Breadcrumb
     @items = []
   end
 
-  alias :<<, :add
-
   def add(name, url=nil, options={})
     @items << [name, url, options]
   end
+
+  alias :<< :add
 
   def display
     size = @items.size
@@ -33,5 +33,4 @@ class Breadcrumb
 
     content_tag(:ul, "\n#{crumbs}\n", :id=>"breadcrumbs")
   end
-
 end

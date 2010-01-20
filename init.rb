@@ -1,4 +1,2 @@
-require File.dirname(__FILE__) + "/lib/has_breadcrumbs"
-require File.dirname(__FILE__) + "/lib/breadcrumb"
+require "has_breadcrumbs"
 
-ActionController::Base.send :include, Breadcrumbs::ActionController
