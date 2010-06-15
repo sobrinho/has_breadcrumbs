@@ -1,2 +1,1 @@
 require "has_breadcrumbs"
-
