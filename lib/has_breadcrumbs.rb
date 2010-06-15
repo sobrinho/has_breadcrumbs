@@ -1,5 +1,3 @@
-require "breadcrumb"
-
 module Breadcrumbs
   module ActionController
     def self.included(base)
@@ -8,10 +6,8 @@ module Breadcrumbs
 
     def breadcrumb
       @breadcrumb ||= Breadcrumb.new
-    end      
+    end
   end
 end
 
-ActionController::Base.class_eval do
-  include Breadcrumbs::ActionController
-end
+ActionController::Base.__send__(:include, Breadcrumbs::ActionController)
