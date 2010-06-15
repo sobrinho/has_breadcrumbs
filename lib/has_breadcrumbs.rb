@@ -1,3 +1,5 @@
+require 'breadcrumb'
+
 module Breadcrumbs
   module ActionController
     def self.included(base)
