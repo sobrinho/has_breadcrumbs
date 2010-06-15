@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{has_breadcrumbs}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gabriel Sobrinho", "Daniel Lopes", "Nando Vieira"]
@@ -15,13 +15,15 @@ Gem::Specification.new do |s|
     "README.textile"
   ]
   s.files = [
-    "MIT-LICENSE",
+    ".gitignore",
+     "MIT-LICENSE",
      "README.textile",
      "Rakefile",
      "VERSION",
      "examples/images/crumbs.gif",
      "examples/index.html",
      "examples/styles.css",
+     "has_breadcrumbs.gemspec",
      "init.rb",
      "lib/breadcrumb.rb",
      "lib/has_breadcrumbs.rb",
