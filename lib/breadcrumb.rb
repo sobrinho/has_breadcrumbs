@@ -1,22 +1,19 @@
 class Breadcrumb
   include ActionView::Helpers::TagHelper
-
   attr_accessor :items
 
   def initialize
-    @items = []
+    self.items = []
   end
-
-  def add(name, url=nil, options={})
-    @items << [name, url, options]
+  
+  def add(name, url = nil, options = {})
+    items << [name, url, options]
   end
-
-  alias :<< :add
 
   def display
-    size = @items.size
+    size = items.size
 
-    crumbs = @items.to_enum(:each_with_index).collect do |item, index|
+    crumbs = items.to_enum(:each_with_index).collect do |item, index|
       name, url, options = item
 
       options[:class] ||= ""
@@ -24,13 +21,13 @@ class Breadcrumb
       options[:class] << " last" if size - 1 == index
       options[:class].squish!
 
-      if url.nil? || (size - 1 == index)
+      if url.nil? or size - 1 == index
         content_tag(:li, name, options)
       else
         content_tag(:li, content_tag(:a, name, :href => url), options)
       end
     end.join("\n")
-
-    content_tag(:ul, "\n#{crumbs}\n", :id=>"breadcrumbs")
+    
+    content_tag(:ul, "\n#{crumbs}\n".html_safe, :id => "breadcrumbs")
   end
 end
