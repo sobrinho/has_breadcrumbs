@@ -2,53 +2,44 @@ h1. has_breadcrumbs
 
 has_breadcrumbs is a simple plugin that adds a breadcrumb object into controllers and views.
 
-h2. Instalation
+h2. Installation
 
-You can install using as gem:
+Rails 2.3:
 
-<pre>
-Rails::Initializer.run do |config|
-  config.gem 'has_breadcrumbs'
-end
-</pre>
+<pre>config.gem 'has_breadcrumbs'</pre>
 
-or install as plugin with `script/plugin install git://github.com/sobrinho/has_breadcrumbs.git`
+Bundler:
+
+<pre>gem 'has_breadcumbs'</pre>
 
 h2. Usage
 
 On your controller:
 
-<pre>
-class ApplicationController < ActionController::Base
-  before_filter :add_initial_breadcrumb
+<pre>class ApplicationController < ActionController::Base
+  before_filter :add_home_breadcrumb
 
   protected
 
-  def add_initial_breadcrumb
+  def add_home_breadcrumb
     breadcrumb.add 'Home', root_path
   end
 end
 
 class PostsController < ApplicationController
   def index
-    # you can also use << instead of add
     breadcrumb.add 'Posts', posts_path
   end
-end
-</pre>
+end</pre>
 
 You don't need to provide an URL; in that case, a span will be generated
 instead of a link:
 
-<pre>
-breadcrumb.add 'Some page'
-</pre>
+<pre>breadcrumb.add 'Some page'</pre>
 
 You can set additional HTML attributes if you need to:
 
-<pre>
-breadcrumb.add 'Home', root_path, :id => 'home', :title => 'Go to the home page'
-</pre>
+<pre>breadcrumb.add 'Home', root_path, :id => 'home', :title => 'Go to the home page'</pre>
 
 On your view:
 
@@ -69,4 +60,4 @@ For a good css example take a look in examples folder.
 
 This work is based on "http://github.com/fnando/has_breadcrumbs":http://github.com/fnando/has_breadcrumbs by Nando Vieira.
 
-Adaptation made by Daniel Lopes and gemified by Gabriel Sobrinho, under the MIT license.
+Adaptation made by Daniel Lopes and Gabriel Sobrinho, under the MIT license.
